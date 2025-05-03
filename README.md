@@ -5,3 +5,5 @@
 
 * Focused on implementing the UI, user interactions, state management, role based access simulation, file handling and a polished user experience. 
 
+## Features 
+* A login page : Allows users/admin to login to the app

@@ -8,14 +8,27 @@ const Login = () => {
     const [email, setEmail] = useState(""); //Stores user input 
     const [password, setPassword] = useState(""); //stores password input
 
-    const handleLogin = () => {
-        if (email && password.length >= 6){   // basic validation
-            login({email, role: "user"}); // simulate login
-            navigate("/dashboard"); // redirect after login
-        }else {
-            alert("Invalid email or password"); 
+    const handleLogin = () => { 
+        // Retrieve all registered users from localStorage
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+      
+        // Check if the email exists in the registered users list
+        const foundUser = storedUsers.find((user) => user.email === email);
+      
+        if (foundUser && password.length >= 6) {
+          login(foundUser); // Log in with the correct user data
+      
+          // Redirect users based on their role
+          if (foundUser.role === "admin") {
+            navigate("/admin"); // Send Admins to Admin Dashboard
+          } else {
+            navigate("/dashboard"); // Send Regular Users to User Dashboard
+          }
+        } else {
+          alert("Invalid email or password! Please register first.");
         }
-    };
+      };
+    
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4'>
         <div className='bg-white p-8 rounded-xl shadow-md w-full max-w-md'>
