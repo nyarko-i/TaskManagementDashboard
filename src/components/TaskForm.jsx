@@ -16,6 +16,7 @@ const TaskForm = ({ existingTask, onSave }) => {
     const uploadedFiles = Array.from(e.target.files).map((file) => ({
       name: file.name,
       type: file.type,
+      previewUrl: URL.createObjectURL(file),
     }));
     setFiles(uploadedFiles);
   };

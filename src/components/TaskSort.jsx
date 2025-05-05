@@ -4,9 +4,9 @@ import React from "react";
 const TaskSort = ({ setSort }) => {
   return (
     <div className="mb-4">
-      <label className="font-semibold mr-2">Sort by:</label>
+      <label className="font-medium mr-2">Sort by:</label>
       <select
-        className="border p-2"
+        className="border p-2 rounded-2xl border-gray-400"
         onChange={(e) => setSort(e.target.value)}
       >
         <option value="date-asc">Due Date (Oldest First)</option>

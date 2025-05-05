@@ -6,7 +6,7 @@ const TaskFilter = ({ setFilter }) => {
     <div className="mb-4">
       <label className="font-semibold mr-2">Filter by Status:</label>
       <select
-        className="border p-2"
+        className="border p-2 rounded-2xl border-gray-400"
         onChange={(e) => setFilter(e.target.value)}
       >
         <option value="all">All</option>
