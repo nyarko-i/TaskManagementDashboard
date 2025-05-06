@@ -129,10 +129,13 @@ http://localhost:5173
 *(or `3000` if Create React App was used)*
 
 
+---
 
 ## 👨🏽‍💻 Author
 
 **Isaac Nyarko**
-Frontend Developer
-*Ours Limited Intern*
 
+Frontend Developer
+
+
+---
