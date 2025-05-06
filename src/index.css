@@ -18,3 +18,23 @@
     color: var(--text-color);
     transition: 0.3s ease-in-out;
   }
+
+    
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  position: relative;
+  display: inline-block;
+}
+
+label span {
+  display: block;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+label .dot {
+  transition: transform 0.3s ease-in-out;
+}

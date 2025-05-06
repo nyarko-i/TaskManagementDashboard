@@ -4,7 +4,7 @@ import Register from "../pages/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from "../pages/Dashboard"; 
 import AdminDashboard from "../pages/AdminDashboard";
-import ThemeToggle from "../components/ThemeToggle";
+
 
 
 const AppRoutes = () => {

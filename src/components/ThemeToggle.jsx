@@ -1,27 +1,46 @@
-import React, { useEffect } from "react";
+// src/components/ThemeSwitchToggle.jsx
+import React, { useState, useEffect } from "react";
+import { setDarkTheme, setLightTheme } from "../utils/theme";
 
-const ThemeToggle = () => {
-  // Load saved theme from localStorage
+export default function ThemeToggle() {
+  const [isDark, setIsDark] = useState(false);
+
+  // Load theme on component mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    document.documentElement.classList.toggle("dark", savedTheme === "dark");
+    const savedTheme = localStorage.theme;
+    if (savedTheme === "dark") {
+      setIsDark(true);
+      setDarkTheme();
+    } else {
+      setIsDark(false);
+      setLightTheme();
+    }
   }, []);
 
-  // Toggle theme on button click
   const toggleTheme = () => {
-    const newTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-    localStorage.setItem("theme", newTheme); // Save theme selection
+    if (isDark) {
+      setLightTheme();
+      setIsDark(false);
+    } else {
+      setDarkTheme();
+      setIsDark(true);
+    }
   };
 
   return (
-    <button 
-      onClick={toggleTheme} 
-      className="bg-gray-700 text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-600"
-    >
-      Toggle Theme
-    </button>
+    <label className="relative inline-flex items-center cursor-pointer">
+      <input
+        type="checkbox"
+        className="sr-only"
+        checked={isDark}
+        onChange={toggleTheme}
+      />
+      <span className="w-11 h-6 bg-gray-200 rounded-full dark:bg-gray-700"></span>
+      <span
+        className={`dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 ease-in-out ${
+          isDark ? "transform translate-x-5" : ""
+        }`}
+      ></span>
+    </label>
   );
-};
-
-export default ThemeToggle;
+}
