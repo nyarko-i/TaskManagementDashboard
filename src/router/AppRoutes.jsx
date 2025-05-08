@@ -7,9 +7,12 @@ import AdminDashboard from "../pages/AdminDashboard";
 
 
 
+
+
 const AppRoutes = () => {
     return (
         <Router>
+            
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/register" element={<Register />} />

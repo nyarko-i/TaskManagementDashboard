@@ -1,10 +1,15 @@
-import AppRoutes from './router/AppRoutes';
+// src/App.jsx
 
+import AppRoutes from './router/AppRoutes';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   return (
-    <div>
-      <AppRoutes />
+    <div >
+        <main>
+          <ThemeToggle/>
+          <AppRoutes /> 
+        </main>
     </div>
   );
 }
