@@ -54,9 +54,8 @@ const ThemeToggle = () => {
   };
 
   // We only want to render the button after the component has mounted
-  // to avoid potential mismatches between server and client rendering.
   if (!isMounted) {
-    return null; // Or a placeholder like <div>Loading theme...</div> if you prefer
+    return null; 
   }
 
   return (
